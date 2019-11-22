@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    <script src="static/clubhub.js"></script>
+
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+    <form action="/login" method="post" id="sign_in">
+        <input class="hidden" type="text" name="first_name" id="first_name" value="" />
+        <button type="submit" hidden="hidden"></button>
+    </form>
+
+    <script src="static/clubhub.js"></script>
+{% endblock %}

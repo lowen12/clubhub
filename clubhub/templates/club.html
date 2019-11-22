@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ info["name"] }}
+{% endblock %}
+
+{% block main %}
+<h3>{{ info["name"] }}</h3>
+    <p>Description: <br>{{ info["description"] }}
+        <br>
+        {% if info["members"] %}
+            Number of members: {{ info["members"] }}
+        {% endif %}
+        <br>
+        {% if info["email"] %}
+            Email address: {{ info["email"] }}
+        {% endif %}
+        <br>
+        {% if info["website"] %}
+            Website: {{ info["website"] }}
+        {% endif %}
+        <br>
+        {% if info["address"] %}
+            Mailing address: {{ info["address"] }}
+        {% endif %}
+        <br>
+        {% if info["elections"] %}
+            Month of elections: {{ info["elections"] }}
+        {% endif %}
+    </p>
+
+{% endblock %}
