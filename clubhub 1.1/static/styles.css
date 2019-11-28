@@ -1,0 +1,13 @@
+.hidden {
+    display: none;
+}
+
+a {
+    color: #0000EE;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+h4 {
+    display: inline;
+}
