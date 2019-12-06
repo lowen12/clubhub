@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ info["name"] }}
+{% endblock %}
+
+{% block main %}
+
+<link href="/static/clubstyle.css" rel="stylesheet">
+
+<h3 id="clubtitle">{{ info["name"] }}</h3> <br>
+
+    <div id="descriptiondiv">
+        <h4 id="clubdescription">Description:</h4> {{ info["description"] }}
+
+        {% if info["members"] %}
+            <h4>Number of members:</h4> {{ info["members"] }}
+        {% endif %}
+        <br>
+        {% if info["email"] %}
+            <h4>Email address:</h4>
+            <a href=mailto:{{ info["email"] }}?>{{ info["email"] }}</a>
+        {% endif %}
+        <br>
+        {% if info["website"] %}
+            <h4>Website:</h4> <a href="{{ info['website'] }}" target="_blank">{{ info["website"] }}</a>
+        {% endif %}
+        <br>
+        {% if info["address"] %}
+            <h4>Mailing address:</h4> {{ info["address"] }}
+        {% endif %}
+        <br>
+        {% if info["elections"] %}
+            <h4>Month of elections:</h4> {{ info["elections"] }} <br>
+        {% endif %}
+        <br>
+
+
+        <script src="static/clubhub.js"></script>
+        <form action="/club" method="post" id="favorite">
+            <input class="hidden" type="text" name="favorite" />
+            <input class="hidden" type="text" name="club_id" value={{ info["id"] }} />
+            <button type="submit">{{ fav_status }}</button>
+        </form> <br>
+    </div>
+
+{% endblock %}

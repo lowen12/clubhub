@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <link href="/static/indexstyle.css" rel="stylesheet">
+    <script src="static/clubhub.js"></script>
+    <h2>ClubHub</h2>
+
+    <h3 id="welcome">Welcome, {{ first_name }}!</h3>
+
+        <div id="keysearch">
+            <form action="/" method="post">
+                <div id="searchinput"><input class="inputstyle" type="text" autocomplete="off" name="search" placeholder="Search by keyword"/></div>
+                <div id="searchbutton"><button class="filterbutton" type="submit" onclick="storeChecks()">Search</button></div>
+            </form>
+        </div>
+
+        <div class="section" id="category">
+            <form action="/" method="post">
+            <h4 class="sectiontitle">Category</h4>
+            <input type="checkbox" name="all"/>All <br>
+            <input type="checkbox" name="academic"/>Academic and Preprofessional <br>
+            <input type="checkbox" name="life"/>College Life <br>
+            <input type="checkbox" name="arts"/>Creative and Performing Arts <br>
+            <input type="checkbox" name="culture"/>Cultural and Racial Initiatives <br>
+            <input type="checkbox" name="gender"/>Gender and Sexuality <br>
+            <input type="checkbox" name="government"/>Government and Politics <br>
+            <input type="checkbox" name="health"/>Health and Wellness <br>
+            <input type="checkbox" name="hobbies"/>Hobbies and Special Interests <br>
+            <input type="checkbox" name="media"/>Media and Publications <br>
+            <input type="checkbox" name="PBHA"/>PBHA <br>
+            <input type="checkbox" name="counseling"/>Peer Counseling/Peer Education <br>
+            <input type="checkbox" name="service"/>Public Service <br>
+            <input type="checkbox" name="religion"/>Religious and Spiritual Life <br>
+            <input type="checkbox" name="SEAS"/>SEAS <br>
+            <input type="checkbox" name="social"/>Social Organizations <br>
+            <input type="checkbox" name="women"/>Women's Initiatives <br> <br>
+        </div>
+
+        <div id="comp">
+            <h4 class="sectiontitle">Comp Type</h4>
+            <input type="checkbox" name="all"/> All <br>
+            <input type="checkbox" name="application"/>Application <br>
+            <input type="checkbox" name="audition"/>Audition <br>
+            <input type="checkbox" name="competition"/>Competition <br>
+            <input type="checkbox" name="completion"/>Completion <br>
+            <input type="checkbox" name="interview"/>Interview <br> <br>
+        </div>
+
+        <div class="section" id="time">
+            <h4 class="sectiontitle">Time Commitement (hours per week)</h4>
+            <input style="width: 40px" name="min" placeholder="Min" type="number" min="1" max="20">
+            <input style="width: 40px" name="max" placeholder="Max" type="number" min="1" max="20"> <br> <br>
+        </div>
+
+        <div id="rating">
+            <h4 class="sectiontitle">Rating</h4>
+            <input type="radio" name="rating" value="0" />All
+            <input type="radio" name="rating" value="2" />>2
+            <input type="radio" name="rating" value="3" />>3
+            <input type="radio" name="rating" value="4" />>4
+            <input type="radio" name="rating" value="5" />5 <br> <br>
+
+        </div>
+
+        <div id="filter">
+            <script src="static/clubhub.js"></script>
+            <button class="filterbutton" type="submit" onclick="storeChecks()">Filter</button>
+            <button class="filterbutton" type="submit" onclick="clearFilter()">Clear Filters</button>
+            </form>
+        </div>
+
+    <div class="footer">
+        <form action="/club" method="post" id="club_link">
+            <h3>Favorites:</h3>
+
+            <ul>
+            {% for row in favorites %}
+                <li>
+                    <input class="hidden" type="radio" name="club_id" value={{ row["id"] }} id={{ row["id"] }} />
+                    <a onclick="goToClub({{ row['id'] }})" class="fake_link">{{ row["name"] }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+
+            <h3>Clubs:</h3>
+            <ul>
+            {% for row in clubs %}
+                <li>
+                    <input class="hidden" type="radio" name="club_id" value={{ row["id"] }} id={{ row["id"] }} />
+                    <a onclick="goToClub({{ row['id'] }})" class="fake_link">{{ row["name"] }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+            <button type="submit" hidden="hidden"></button>
+        </form>
+    </div>
+{% endblock %}

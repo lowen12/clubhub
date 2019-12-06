@@ -1,0 +1,209 @@
+.hidden {
+    display: none;
+}
+
+#logintitle {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#logindescription {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.g-signin2 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+a {
+    color: #a52a2a;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+h2 {
+    color: #a52a2a;
+    font-weight: bold;
+    text-align: center;
+    font-size: 35px;
+}
+
+#welcome {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+* {
+    font-family: 'Cantata One';
+}
+
+div {
+    border-radius: 10px;
+}
+
+.menu {
+  height: 80px;
+  background-color: #efc2c2;
+}
+
+.sidebar {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 80px;
+}
+
+#keysearch {
+    position: absolute;
+    padding: 10px;
+    top: 5px;
+    left: 100%;
+    transform: translate(-100%, 0);
+}
+
+#searchinput {
+    float: left;
+}
+
+#searchbutton {
+    float: right;
+}
+
+.section {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 5px;
+    padding-left: 10px;
+    clear: left;
+}
+
+.sectiontitle {
+    position: relative;
+    top: -5px;
+}
+
+#comp {
+    display: flex;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 5px;
+    padding-left: 10px;
+    justify-content: center;
+}
+
+#filter {
+    clear: left;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 5px;
+}
+
+.filterbutton {
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius:8px;
+    background-color: #e6e6e6;
+    border: 2px solid #b3b3b3;
+    margin: 2px;
+}
+
+.footer {
+  display: flex;
+  margin: 5px;
+  padding-left: 10px;
+}
+
+#clubtitle {
+    text-align: center;
+}
+
+#registertitle {
+    text-align: center;
+    font-size: 23px;
+}
+
+#registerpage {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    padding: 20px;
+    height: 550px;
+    width: 475px;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    text-align:justify;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #f2f2f2;
+}
+
+.inputstyle {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d9d9d9;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    padding: 2px;
+    height: 20px;
+}
+
+#registerbutton {
+    float: left;
+    padding: 3px 7px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius:4px;
+    background-color: #e6e6e6;
+    border: 2px solid #d9d9d9;
+    margin: 2px;
+}
+
+#message {
+    float: left;
+    position: relative;
+    top: 6px;
+    left: 12px;
+    color: red;
+}
+
+#descriptiondiv {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 70%;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    text-align:justify;
+}
+
+#clubtitle {
+    text-align: center;
+    font-size: 23px;
+}
