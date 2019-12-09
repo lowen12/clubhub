@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Meta tags and Javascript from Google -->
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="518684338565-e7ckf896eit8sgj9s4rn4ucivm8if2k7.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <title>ClubHub: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body onload="retrieveChecks()" >
+
+        {% if session.user_id %}
+            <div class="sidebar">
+            <nav>
+                <div class="collapse navbar-collapse" id="navbar">
+                        <ul id="side">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/register">Register</a></li>
+                            <script src="static/clubhub.js"></script>
+                            <button hidden="hidden"><div class="g-signin2"></div></button>
+                            <li><a href="/logout" onclick="signOut()" >Log Out</a></li>
+                        </ul>
+                </div>
+            </nav>
+            </div>
+        {% endif %}
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container p-5">
+            {% block main %}{% endblock %}
+        </main>
+
+    </body>
+
+</html>

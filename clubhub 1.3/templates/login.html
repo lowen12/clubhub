@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    <link href="/static/loginstyle.css" rel="stylesheet">
+
+    <script src="static/clubhub.js"></script>
+    <h1 id="logintitle">ClubHub</h1>
+    <h3 id="logindescription">A platform containing all the information you need </br> for clubs and organizations at Harvard.</h3>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+    <form action="/login" method="post" id="sign_in">
+        <input class="hidden" type="text" name="first_name" id="first_name" value="" />
+        <input class="hidden" type="text" name="last_name" id="last_name" value="" />
+        <input class="hidden" type="text" name="email" id="email" value="" />
+        <input class="hidden" type="text" name="image" id="image" value="" />
+        <button type="submit" hidden="hidden"></button>
+    </form>
+
+    <script src="static/clubhub.js"></script>
+{% endblock %}

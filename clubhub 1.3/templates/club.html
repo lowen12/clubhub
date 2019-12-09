@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ info["name"] }}
+{% endblock %}
+
+{% block main %}
+
+<link href="/static/clubstyle.css" rel="stylesheet">
+
+<h3 class="clubtitle">{{ info["name"] }}</h3> <br>
+
+    <div id="cluboptions">
+        <div id="joinbutton">
+            <form action="/club" method="post" id="join">
+                <input class="hidden" type="text" name="join" />
+                <input class="hidden" type="text" name="club_id" value={{ info["id"] }} />
+                <button class="filterbutton" type="submit">{{ member_status }}</button>
+            </form> <br>
+        </div>
+
+        <div id="favoritebutton">
+            <script src="static/clubhub.js"></script>
+            <form action="/club" method="post" id="favorite">
+                <input class="hidden" type="text" name="favorite" />
+                <input class="hidden" type="text" name="club_id" value={{ info["id"] }} />
+                <button class="filterbutton" type="submit">{{ fav_status }}</button>
+            </form>
+        </div>
+    </div>
+    {% if member_status == "Unjoin" %}
+                <form action="/rate" method="post" id="rate_link">
+                    <input class="hidden" type="text" name="club_id1" value={{ info["id"] }} />
+                    <a id="addrating" onclick="goToRating()" class="fake_link">Add a Rating</a>
+                </form> <br>
+    {% endif %}
+
+    <div id="descriptiondiv">
+        <h4 id="clubdescription">Description:</h4> {{ info["description"] }}
+
+        {% if info["members"] %}
+            <h4>Number of members:</h4> {{ info["members"] }}
+        {% endif %}
+        <br>
+        {% if info["email"] %}
+            <h4>Email address:</h4>
+            <a href=mailto:{{ info["email"] }}?>{{ info["email"] }}</a>
+        {% endif %}
+        <br>
+        {% if info["website"] %}
+            <h4>Website:</h4> <a href="{{ info['website'] }}" target="_blank">{{ info["website"] }}</a>
+        {% endif %}
+        <br>
+        {% if info["address"] %}
+            <h4>Mailing address:</h4> {{ info["address"] }}
+        {% endif %}
+        <br>
+        {% if info["elections"] %}
+            <h4>Month of elections:</h4> {{ info["elections"] }} <br>
+        {% endif %}
+
+        <h4>Comp types:</h4>
+            {% for row in comps %}
+                {% if row == comps[0] %}
+                    {{ row["comp"] }}
+                {% else %}
+                    , {{ row["comp"] }}
+                {% endif %}
+
+            {% endfor %}
+        <br>
+        <h4>Average time commitment:</h4> {{ "%.2f"|format(rating[0]["AVG(commitment)"]|float) }} hours per week
+        {% if rating[0]["COUNT(*)"] == 1 %}
+            (1 rating)
+        {% else %}
+            ({{ rating[0]["COUNT(*)"] }} ratings)
+        {% endif %} <br>
+        <h4>Average rating:</h4> {{ "%.2f"|format(rating[0]["AVG(rating)"]|float) }}
+        {% if rating[0]["COUNT(*)"] == 1 %}
+            (1 rating)
+        {% else %}
+            ({{ rating[0]["COUNT(*)"] }} ratings)
+        {% endif %} <br>
+
+        <script src="static/clubhub.js"></script>
+
+        <h4>Q&A:</h4>
+        <p style="font-style: italic;">Post your questions about this club here.</p>
+        <form action="/club" method="post" id = "question">
+            <input class="inputstyle" type="text" autocomplete="off" placeholder="Question" name="question" id="question" maxlength="1500" />
+            <input class="hidden" name="club_id" value={{ info["id"] }} />
+            <button class="filterbutton" type="submit" >Submit Question</button>
+        </form>
+        <br>
+        <button type="button" class="collapsible">Previous Questions and Answers</button>
+        <div class="content">
+            {% for row in questions %}
+                {% if row["question"] %}
+                    <p>Question: {{row["question"] }}</p>
+                    {% if row["answer"] %}
+                        <p>Answer: {{row["answer"] }}</p>
+                    {% else %}
+                        {% if member_status == "Unjoin" %}
+                            <form action="/club" method="post" id="answer">
+                                <input <input type="text" class = "inputstyle" name="answer" id="answer" autocomplete="off" placeholder="Answer" maxlength="1500" />
+                                <input class="hidden" name="club_id" value={{ info["id"] }} />
+                                <input class="hidden" name="question_id" value={{ row["id"] }} />
+                                <button class="filterbutton" type="submit" id="button" >Submit Answer</button>
+                            </form>
+                        {% else %}
+                            Unanswered.
+                        {% endif %}
+                    {% endif %}
+
+                {% endif %}
+            {% endfor %}
+        </div>
+        <button type="button" class="collapsible" id="rcollapsible">Reviews</button>
+        <div class="content">
+            {% for row in review %}
+                {% if row["review"] %}
+                    <p>{{ row["review"] }}</p> <br>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <script>
+        // collapsible code from https://www.w3schools.com/howto/howto_js_collapsible.asp
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+        </script>
+    </div>
+
+{% endblock %}

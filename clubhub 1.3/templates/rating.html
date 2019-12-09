@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Rate
+{% endblock %}
+
+{% block main %}
+    <link href="/static/ratingstyle.css" rel="stylesheet">
+
+    <script src="static/clubhub.js"></script>
+    <h3 class="clubtitle">Rate: {{ info[0]["name"] }}</h3>
+
+    <div class="formpage" id="ratingformpage">
+        <form action="/club" method="post" id="rate" >
+            <p style="font-weight: bold;">How many hours per week do you (or the average club member) typically spend on club related activities?*</p>
+            <input style="width: 50px;" type="number" name="commitment" class="inputstyle" id="commitment" min="1" max="20" placeholder="Hours" />
+            <p style="font-weight: bold;">Please rate your experience as a club member on a scale of 1 to 5, where 5 is outstanding and 1 is very poor.*</p>
+            <input style="width: 50px;" type="number" name="rating" class="inputstyle" id="rating" min="1" max="5" placeholder="Rating" /> <br>
+            <p style="font-weight: bold;">Review your club:</p>
+            <input style="width: 100%" class="inputstyle" type="text" name="review" placeholder="Comments" maxlength="1500" /> <br> <br>
+            <input class="hidden" name="club_id" value={{ info[0]["id"] }} />
+
+            <script src="static/clubhub.js"></script>
+            <button id="registerbutton" type="button" onclick="checkRating()" >Submit Rating</button>
+        </form>
+        <div id="message"></div>
+    </div>
+{% endblock %}

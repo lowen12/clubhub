@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+    <link href="/static/registerstyle.css" rel="stylesheet">
+
+    <script src="static/clubhub.js"></script>
+    <h3 class="clubtitle">Fill out the following form to register your club:</h3>
+    <div class="formpage" id="registerformpage">
+        <form action="/register" method="post" id="register">
+            <p>The following information will appear publicly on your club's page.</p>
+            <input type="text" name="club_name" class="inputstyle" id="club_name" placeholder="Club Name" autocomplete="off" maxlength="100" />* <br>
+            <input style="font-size: 12px; text-align: left; font-weight: normal; width: 95%; color: black;" type="text" name="description" class="inputstyle" id="description" autocomplete="off" placeholder="Description" maxlength="3000" />* <br>
+            <input type="number" name="members" class="inputstyle" id="members" min="1" placeholder="Number of Members" /> <br>
+            <input type="text" name="email" class="inputstyle" id="email" placeholder="Email" /> <br>
+            <input type="text" name="website" class="inputstyle" id="website" placeholder="Website" /> <br>
+            <input type="text" name="address" class="inputstyle" id="address" placeholder="Mailing Address" /> <br>
+            <input type="text" name="elections" class="inputstyle" id="elections" placeholder="Month of Officer Elections" />
+
+            <p>For the following questions, please select all that apply.</p>
+            <h4>Categories*</h4>
+            <input type="checkbox" name="academic"/>Academic and Preprofessional <br>
+            <input type="checkbox" name="life"/>College Life <br>
+            <input type="checkbox" name="arts"/>Creative and Performing Arts <br>
+            <input type="checkbox" name="culture"/>Cultural and Racial Initiatives <br>
+            <input type="checkbox" name="gender"/>Gender and Sexuality <br>
+            <input type="checkbox" name="government"/>Government and Politics <br>
+            <input type="checkbox" name="health"/>Health and Wellness <br>
+            <input type="checkbox" name="hobbies"/>Hobbies and Special Interests <br>
+            <input type="checkbox" name="media"/>Media and Publications <br>
+            <input type="checkbox" name="PBHA"/>PBHA <br>
+            <input type="checkbox" name="counseling"/>Peer Counseling/Peer Education <br>
+            <input type="checkbox" name="service"/>Public Service <br>
+            <input type="checkbox" name="religion"/>Religious and Spiritual Life <br>
+            <input type="checkbox" name="SEAS"/>SEAS <br>
+            <input type="checkbox" name="social"/>Social Organizations <br>
+            <input type="checkbox" name="women"/>Women's Initiatives <br> <br>
+
+            <h4>Comp Types*</h4>
+            <input type="checkbox" name="application"/>Application <br>
+            <input type="checkbox" name="audition"/>Audition <br>
+            <input type="checkbox" name="competition"/>Competition <br>
+            <input type="checkbox" name="completion"/>Completion <br>
+            <input type="checkbox" name="interview"/>Interview <br> <br>
+
+            <h4>Evaluation</h4>
+            <p>How many hours per week do you (or the average club member) typically spend on club related activities?*</p>
+            <input style="width: 45px" type="number" name="commitment" class="inputstyle" id="commitment" min="1" max="20" placeholder="Hours" />
+            <p>Please rate your experience as a club member on a scale of 1 to 5, where 5 is outstanding and 1 is very poor.*</p>
+            <input style="width: 45px;" type="number" name="rating" class="inputstyle" id="rating" min="1" max="5" placeholder="Rating" /> <br>
+            <p>Review your club:</p>
+            <input style="width: 100%" class="inputstyle" type="text" name="review" placeholder="Your Comments" maxlength="1500" /> <br> <br>
+
+            <script src="static/clubhub.js"></script>
+            <button id="registerbutton" type="button" onclick="checkRegister()" >Register Club</button>
+            <div id="message"></div>
+        </form>
+
+    </div>
+
+{% endblock %}

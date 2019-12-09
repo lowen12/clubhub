@@ -1,0 +1,291 @@
+.hidden {
+    display: none;
+}
+
+#logintitle {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#logindescription {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.g-signin2 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+a {
+    color: #a52a2a;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+h2 {
+    color: #a52a2a;
+    font-weight: bold;
+    text-align: center;
+    font-size: 35px;
+}
+
+#welcome {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+* {
+    font-family: 'Cantata One';
+}
+
+div {
+    border-radius: 10px;
+}
+
+.sidebar {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 80px;
+}
+
+#keysearch {
+    margin: 5px;
+}
+
+#searchinput {
+    float: left;
+}
+
+#sinputstyle {
+    font-size: 15px;
+    padding: 2px;
+    height: 25px;
+    margin-bottom: 15px;
+
+}
+
+#sbuttonstyle {
+    padding: 5px 10px;
+    font-size: 15px;
+}
+#searchbutton
+{
+    float: left;
+    position: relative;
+    top: -2px;
+    left: 8px;
+}
+
+.section {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    clear: left;
+}
+
+.sectiontitle {
+    position: relative;
+    top: -5px;
+}
+
+.comp {
+    display: block;
+}
+
+#filter {
+    clear: left;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 5px;
+}
+
+.filterbutton {
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius:8px;
+    background-color: #e6e6e6;
+    border: 2px solid #b3b3b3;
+    margin: 2px;
+}
+
+.footer {
+  display: flex;
+  margin: 5px;
+  padding-left: 10px;
+}
+
+.clubtitle {
+    text-align: center;
+    font-size: 23px;
+}
+
+#ratingformpage {
+    padding-top: 5px;
+    transform: translate(-50%,0);
+}
+
+#registerformpage {
+    height: 550px;
+    transform: translate(-50%,0);
+}
+
+.formpage {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    padding: 20px;
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    margin: 20px;
+    overflow-x: hidden;
+    text-align:justify;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #f2f2f2;
+}
+
+.inputstyle {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #d9d9d9;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    padding: 2px;
+    height: 20px;
+}
+
+#registerbutton {
+    float: left;
+    padding: 3px 7px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius:4px;
+    background-color: #e6e6e6;
+    border: 2px solid #d9d9d9;
+    margin: 2px;
+}
+
+#message {
+    float: left;
+    position: relative;
+    top: 6px;
+    left: 12px;
+    color: red;
+}
+#joinbutton {
+    float: left;
+    margin: 2.5px;
+}
+
+#favoritebutton {
+    float: right;
+    margin: 2.5px;
+}
+
+#addrating {
+    position: absolute;
+    top: 10px;
+    left: 100%;
+    transform: translate(-150%, 0);
+    font-size: 20px;
+    margin: 10px;
+}
+
+#cluboptions {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#descriptiondiv {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 70%;
+    display: inline-block;
+    height: 500px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    overflow-x: hidden;
+    text-align:justify;
+    margin: 20px;
+    padding-bottom: 20px;
+}
+
+/* collapsible code from https://www.w3schools.com/howto/howto_js_collapsible.asp */
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #e6e6e6;
+  margin: 2px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding-bottom: 18px;
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+#rcollapsible {
+    margin-top: 20px;
+}
+
+
+.aboutus {
+    font-size: 12px;
+    line-height:2px;
+}
+
+.about {
+    margin: 10px;
+}
